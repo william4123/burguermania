@@ -1,1 +1,1 @@
-# burguermania
+# BurguerMania
