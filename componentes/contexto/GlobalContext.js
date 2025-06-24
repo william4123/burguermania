@@ -31,17 +31,7 @@ export function GlobalProvider({ children }) {
   }, [itensCarrinho]);
 
   async function adicionarProduto(produto) {
-    const existente = itensCarrinho.find((i) => i.id === produto.id);
-    let atualizado;
-
-    if (existente) {
-      atualizado = itensCarrinho.map((i) =>
-        i.id === produto.id ? { ...i, quantidade: i.quantidade + 1 } : i
-      );
-    } else {
-      atualizado = [...itensCarrinho, { ...produto, quantidade: 1 }];
-    }
-
+    const atualizado = [...itensCarrinho, produto];
     setItensCarrinho(atualizado);
     await AsyncStorage.setItem("carrinho", JSON.stringify(atualizado));
     alert("Produto adicionado ao carrinho!");

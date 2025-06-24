@@ -1,6 +1,12 @@
 import * as SQLite from "expo-sqlite";
 import { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import alert from "../../outros/Alert";
 import Util from "../../outros/Util";
 
@@ -116,7 +122,7 @@ export default function RegisterScreen({ navigation }) {
   );
 }
 
-const styles = {
+const styles = StyleSheet.create({
   input: {
     height: 48,
     borderColor: "#ccc",
@@ -141,4 +147,4 @@ const styles = {
     textAlign: "center",
     marginTop: 8,
   },
-};
+});

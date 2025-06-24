@@ -1,22 +1,15 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useEffect } from "react";
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import alert from "../../outros/Alert";
 import { useGlobal } from "../contexto/GlobalContext";
 
 export default function CarrinhoScreen() {
   const { itensCarrinho, totalCarrinho } = useGlobal();
-
-  async function carregarCarrinho() {
-    const json = await AsyncStorage.getItem("carrinho");
-    if (json) {
-      setItens(JSON.parse(json));
-    }
-  }
-
-  useEffect(() => {
-    carregarCarrinho();
-  }, []);
 
   if (itensCarrinho.length === 0) {
     return (
@@ -70,7 +63,7 @@ export default function CarrinhoScreen() {
   );
 }
 
-const styles = {
+const styles = StyleSheet.create({
   titulo: {
     fontSize: 24,
     fontWeight: "bold",
@@ -126,4 +119,4 @@ const styles = {
     fontSize: 16,
     fontWeight: "bold",
   },
-};
+});

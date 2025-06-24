@@ -1,7 +1,14 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as SQLite from "expo-sqlite";
 import { useState } from "react";
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import alert from "../../outros/Alert";
 import Util from "../../outros/Util";
 import { useGlobal } from "../contexto/GlobalContext";
@@ -100,7 +107,7 @@ export default function LoginScreen({ navigation }) {
   );
 }
 
-const styles = {
+const styles = StyleSheet.create({
   input: {
     height: 48,
     borderColor: "#ccc",
@@ -125,4 +132,4 @@ const styles = {
     textAlign: "center",
     marginTop: 8,
   },
-};
+});

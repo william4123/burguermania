@@ -1,4 +1,11 @@
-import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { useGlobal } from "../contexto/GlobalContext";
 
 const produtos = [
@@ -50,6 +57,22 @@ const produtos = [
       uri: "https://panattos.com.br/uploads/produtos/2017/03/coxinha-de-frango-com-requeijao-mini-congelada.jpg",
     },
   },
+  {
+    id: "7",
+    nome: "Refrigerante 250ml",
+    preco: 4.0,
+    imagem: {
+      uri: "https://redemix.vteximg.com.br/arquivos/ids/206599-1000-1000/78912939.jpg?v=638350591375100000",
+    },
+  },
+  {
+    id: "8",
+    nome: "Monster",
+    preco: 12.0,
+    imagem: {
+      uri: "https://product-data.raiadrogasil.io/images/5864747.webp",
+    },
+  },
 ];
 
 export default function CardapioScreen() {
@@ -85,7 +108,7 @@ export default function CardapioScreen() {
   );
 }
 
-const styles = {
+const styles = StyleSheet.create({
   card: {
     backgroundColor: "#f5f5f5",
     borderRadius: 12,
@@ -95,6 +118,8 @@ const styles = {
     elevation: 2,
     flex: 1,
     marginHorizontal: 8,
+    height: 300,
+    justifyContent: "space-between",
   },
   imagem: {
     width: 150,
@@ -123,4 +148,4 @@ const styles = {
     color: "#fff",
     fontWeight: "bold",
   },
-};
+});
