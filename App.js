@@ -78,10 +78,6 @@ function AppInterno() {
     );
   }
 
-  if (logado === null) {
-    return null;
-  }
-
   return (
     <NavigationContainer>
       {logado ? <MainDrawer /> : <AuthStack />}

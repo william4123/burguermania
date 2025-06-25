@@ -1,4 +1,6 @@
+import { useState } from "react";
 import {
+  ActivityIndicator,
   FlatList,
   StyleSheet,
   Text,
@@ -9,7 +11,8 @@ import alert from "../../outros/Alert";
 import { useGlobal } from "../contexto/GlobalContext";
 
 export default function CarrinhoScreen() {
-  const { itensCarrinho, totalCarrinho } = useGlobal();
+  const { itensCarrinho, totalCarrinho, setItensCarrinho } = useGlobal();
+  const [finalizando, setFinalizando] = useState(false);
 
   if (itensCarrinho.length === 0) {
     return (
@@ -28,7 +31,12 @@ export default function CarrinhoScreen() {
   }
 
   function finalizar() {
-    alert("Pedido finalizado com sucesso!");
+    setFinalizando(true);
+    setTimeout(() => {
+      setFinalizando(false);
+      setItensCarrinho([]);
+      alert("Pedido finalizado com sucesso!");
+    }, 1500);
   }
 
   function renderizar({ item }) {
@@ -56,8 +64,16 @@ export default function CarrinhoScreen() {
         <Text style={styles.totalValor}>R$ {totalCarrinho.toFixed(2)}</Text>
       </View>
 
-      <TouchableOpacity style={styles.botao} onPress={finalizar}>
-        <Text style={styles.botaoTexto}>Finalizar Pedido</Text>
+      <TouchableOpacity
+        style={[styles.botao, finalizando && { opacity: 0.7 }]}
+        onPress={finalizar}
+        disabled={finalizando}
+      >
+        {finalizando ? (
+          <ActivityIndicator color="#fff" />
+        ) : (
+          <Text style={styles.botaoTexto}>Finalizar Pedido</Text>
+        )}
       </TouchableOpacity>
     </View>
   );

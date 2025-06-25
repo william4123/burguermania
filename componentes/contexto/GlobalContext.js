@@ -43,8 +43,9 @@ export function GlobalProvider({ children }) {
         logado,
         setLogado,
         itensCarrinho,
-        adicionarProduto,
+        setItensCarrinho,
         totalCarrinho,
+        adicionarProduto,
       }}
     >
       {children}

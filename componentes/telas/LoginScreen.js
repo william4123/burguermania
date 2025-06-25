@@ -65,8 +65,8 @@ export default function LoginScreen({ navigation }) {
           width: 110,
           height: 110,
           marginBottom: 24,
-          resizeMode: "contain",
         }}
+        resizeMode="contain"
       />
 
       <Text
